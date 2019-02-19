@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain">
+
+  <class name="Resultat" table="resultat">
+    <id name="Id" column="id_resultat" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Classement" column="classement" not-null="true"/>
+    <property name="VitMoy" column="vitesse_moyenne" not-null="true"/>
+    <property name="AllureMoy" column="allure_moyenne" not-null="true"/>
+    <property name="Temps" column="temps"/>
+    <many-to-one name = "Coureur" column = "id_participant" unique="true"
+         class="Participant" not-null="false"/>
+    <many-to-one name = "Course" column = "id_course"
+         class="Course" not-null="false"/>
+  </class>
+
+</hibernate-mapping>
